@@ -1,0 +1,17 @@
+ports:
+- port: 15432 # PostgreSQL
+  onOpen: ignore
+- port: 15432 # Redis
+  onOpen: ignore
+- port: 1080 # email
+  onOpen: ignore
+- port: 5678
+  onOpen: ignore
+- port: 5000 # Redash
+  onOpen: open-preview
+
+tasks:
+  - init: |
+      docker-compose up --no-start
+    command:
+      docker-compose up
